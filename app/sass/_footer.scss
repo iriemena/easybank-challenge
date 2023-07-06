@@ -1,0 +1,51 @@
+@use './variables' as *;
+
+.footer{
+    background-color: $darkblue;
+    min-height: 31.875rem;
+    margin-top: 5.4375rem;
+    text-align: center;
+
+    &__logo{
+        padding-top: 2.8125rem;
+        
+    }
+
+    &__social{
+        padding: 2.1875rem 5.8125rem;
+
+        img{
+            padding-left: 1rem;
+        }
+    }
+
+
+    &__menu{
+       
+        a{
+        display: block;
+        color:$white;
+        font-size: $font-sm;    
+           
+        &:not(:first-child){
+            padding-top: 1.5rem;
+        }
+        }
+    }
+
+    &__CTA{
+
+        margin: 2.5rem 0 2.5rem;
+        a{
+            color: $white;
+            font-weight: 400;
+        }
+    }
+
+    h3{
+        color: $grayishblue;
+        font-size: 1rem;
+        font-weight: 300;
+        padding-bottom: 3.125rem;
+    }
+}

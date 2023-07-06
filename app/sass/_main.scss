@@ -1,0 +1,34 @@
+@use './variables' as *;
+
+.main{
+text-align: center;
+color: $grayishblue;
+background-color: $lightgrayishblue;
+
+h2{
+    color: $darkblue;
+    padding-top: 1.875rem;
+    font-weight: 300;
+    font-size: 1.875rem;
+}
+
+p{
+    line-height: 1.5;
+    font-size: $font-sm;
+    padding: 2rem 1.75rem 2.5rem;
+
+    }
+
+    &__why{
+        h2{
+            padding-top: 4.4375rem;
+        }
+    }
+
+    &__open{
+        p{
+
+            padding-bottom: 4.4375rem;
+        }
+    }
+}

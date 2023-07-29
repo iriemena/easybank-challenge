@@ -1,41 +1,70 @@
 @use './variables' as *;
-.article{
-    
-    h1{
-    text-align: center;
-    margin-top: 5.9375rem;
-    padding-bottom: 2.5rem;
-    font-weight: 300;
-    font-size: 1.875rem;
-    color: $darkblue;
+@use './mixins' as *;
 
+.articles {
+
+    h1 {
+        text-align: center;
+        margin-top: 5.9375rem;
+        padding-bottom: 2.5rem;
+        font-weight: 300;
+        font-size: 1.875rem;
+        color: $darkblue;
+
+        @include breakpoint-up(large) {
+            text-align: left;
+            padding-bottom: 0;
+        }
     }
 
-        &__article1,
-        &__article2,
-        &__article3,
-        &__article4 {
+
+    .article {
+
+
+        @include breakpoint-up(medium) {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 75rem;
+            margin: 0 auto;
+            width: 100%;
+            padding-top: 2.8125rem;
+        }
+
+        &__item {
+
             margin-bottom: 1.5rem;
             box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
             border-radius: .3125rem;
+
+            @include breakpoint-up(medium) {
+                flex: 0 0 calc(50% - 1.875rem); // 50% witdth - 30px margin ;
+
+                margin: .9375rem; //all round margin of 15
+
+            }
+
+            @include breakpoint-up(large) {
+
+                flex: 1;
+            }
         }
 
         margin: auto;
         width: 20.5rem;
         min-height: 24.5625rem;
         margin-bottom: 1.5rem;
-    
+
         img {
             width: 100%;
             padding-bottom: calc(2rem - .1875rem);
         }
-    
+
         small {
             color: $grayishblue;
             padding-left: 2rem;
             font-size: .625rem;
         }
-    
+
         h3 {
             font-weight: 300;
             color: $darkblue;
@@ -43,14 +72,17 @@
             padding: 0 2rem;
             font-size: 1rem;
             margin-bottom: .875rem;
-    
+
         }
-    
+
         p {
             color: $grayishblue;
             padding: 0 2rem 2.8125rem;
             font-size: .75rem;
             font-weight: 200;
         }
-    
+
+
+    }
+
 }

@@ -1,44 +1,91 @@
 @use "./variables" as *;
+@use "./mixins" as *;
 
-.hero{
-  text-align: center;
+.hero {
+    text-align: center;
 
-    &__img{
+    @include breakpoint-up(large) {
+        display: flex;
+        min-height: 41rem;
+    }
+
+
+    &__img {
         position: relative;
         background-image: url('/images/bg-intro-mobile.svg');
         background-repeat: no-repeat;
         background-size: cover;
         min-height: 24.5rem;
 
-        &::before{
+        &::before {
             content: '';
             background-image: url('/images/image-mockups.png');
             position: absolute;
             background-repeat: no-repeat;
             background-position: center bottom;
             background-size: 98%;
-            top: 0;;
+            top: 0;
+            ;
             bottom: 1rem;
             left: 0;
             right: 0;
-            
-            
+
         }
-        
+
+        @include breakpoint-up(medium) {
+            min-height: 31.5rem;
+
+        }
+
+        ;
+
+        @include breakpoint-up(large) {
+            position: relative;
+            background-image: url('/images/bg-intro-desktop.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 41.25rem;
+            width: 100%;
+            order: 3;
+            bottom: 5.5rem;
+
+            &::before {
+                background-size: 80%;
+                height: 136%;
+                right: -13rem;
+
+            }
+
+
+        }
+
     }
 
-    &__text{
-       
-        margin: 0 2rem 0;
-        h1{ 
+    &__text {
+
+        @include breakpoint-up(large) {
+            margin-top: 11.5rem;
+
+            text-align: left;
+            order: 2;
+        }
+
+        // margin: 0 2rem 0;
+
+        h1 {
             color: $darkblue;
             font-size: 2.5rem;
             margin-top: 2.5rem;
             // font-family: Arial, Helvetica, sans-serif;
             font-weight: 300;
+
+            @include breakpoint-up(large) {
+                margin-top: 0;
+
+            }
         }
 
-        p{
+        p {
             margin-top: 1.875rem;
             color: $grayishblue;
             font-size: $font-sm;
@@ -46,12 +93,14 @@
         }
     }
 
-    &__button{
-            font-size: $font-sm;
-            color: $white;
-            font-weight: 400;
-            margin-top: 2.125rem;
-            display: inline-block;
-            margin-bottom: 5.5rem;
+    &__button {
+        font-size: $font-sm;
+        color: $white;
+        font-weight: 400;
+        margin-top: 2.125rem;
+        display: inline-block;
+        margin-bottom: 5.5rem;
     }
+
+
 }

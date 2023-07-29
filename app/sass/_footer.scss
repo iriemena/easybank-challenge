@@ -1,51 +1,142 @@
 @use './variables' as *;
+@use './mixins' as *;
 
-.footer{
+.footer-section {
     background-color: $darkblue;
+}
+
+.footer {
+
+
     min-height: 31.875rem;
     margin-top: 5.4375rem;
     text-align: center;
 
-    &__logo{
-        padding-top: 2.8125rem;
-        
+    @include breakpoint-up(large) {
+        min-height: 11.875rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr) 2fr;
+        grid-template-rows: auto;
+        grid-template-areas: "logo col1 col2 cta"
+            "icons col1 col2 copyright"
+        ;
     }
 
-    &__social{
+    &__logo {
+        padding-top: 3.125rem;
+
+        @include breakpoint-up(large) {
+            grid-area: logo;
+            justify-self: start;
+        }
+
+    }
+
+    &__social {
+
         padding: 2.1875rem 5.8125rem;
 
-        img{
+        img {
             padding-left: 1rem;
+
+            @include breakpoint-up(large) {
+                padding-left: .875rem;
+                font-size: .875rem;
+            }
+        }
+
+        @include breakpoint-up(large) {
+            grid-area: icons;
+            padding: 2.438rem 0 3.125rem;
+            min-width: 13rem;
+            justify-self: start;
+            text-align: left;
+
+
         }
     }
 
+    &__menu {
+        a {
+            display: block;
+            color: $white;
+            font-size: $font-sm;
 
-    &__menu{
-       
-        a{
-        display: block;
-        color:$white;
-        font-size: $font-sm;    
-           
-        &:not(:first-child){
-            padding-top: 1.5rem;
+            a {
+                display: inline-block;
+            }
+
+            &:not(:first-child) {
+                padding-top: 1.5rem;
+
+                @include breakpoint-up(large) {
+                    padding-top: 1rem;
+
+                }
+            }
         }
+
+        &.col1 {
+            @include breakpoint-up(large) {
+                grid-area: col1;
+                padding-top: 3.125rem;
+                justify-self: center;
+            }
+
+            a {
+                @include breakpoint-up(large) {
+                    text-align: left;
+                }
+            }
+
+
+        }
+
+        &.col2 {
+            @include breakpoint-up(large) {
+                grid-area: col2;
+                padding-top: 3.125rem;
+                margin-top: 0;
+                justify-self: center;
+            }
+
+            a {
+                @include breakpoint-up(large) {
+                    text-align: left;
+                }
+            }
+
+            margin-top: 1.25rem;
         }
     }
 
-    &__CTA{
+    &__CTA {
+
+        @include breakpoint-up(large) {
+            grid-area: cta;
+            padding-top: 3.125rem;
+            justify-self: end;
+            margin: 0;
+        }
 
         margin: 2.5rem 0 2.5rem;
-        a{
+
+        a {
             color: $white;
             font-weight: 400;
         }
     }
 
-    h3{
+    h3 {
+        @include breakpoint-up(large) {
+            grid-area: copyright;
+            justify-self: end;
+            margin: 0;
+        }
+
         color: $grayishblue;
         font-size: 1rem;
         font-weight: 300;
-        padding-bottom: 3.125rem;
+        padding: 2.438rem 0 3.125rem;
     }
 }

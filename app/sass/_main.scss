@@ -1,34 +1,76 @@
 @use './variables' as *;
+@use './mixins' as *;
 
-.main{
-text-align: center;
-color: $grayishblue;
-background-color: $lightgrayishblue;
 
-h2{
-    color: $darkblue;
-    padding-top: 1.875rem;
-    font-weight: 300;
-    font-size: 1.875rem;
+.body {
+    text-align: center;
+    color: $grayishblue;
+    background-color: $lightgrayishblue;
+    padding-top: 4.375rem;
+    padding-bottom: 4.375rem;
+
+    @include breakpoint-up(large) {
+        text-align: left;
+
+    }
+
+    h2 {
+        color: $darkblue;
+        padding-top: 1.875rem;
+        font-weight: 300;
+        font-size: 1.5rem;
+        max-width: 75rem;
+        margin: 0 auto;
+
+        @include breakpoint-up(large) {
+            padding-top: 3.125rem;
+
+        }
+
+    }
+
+    p {
+        line-height: 1.5;
+        font-size: $font-sm;
+        padding: 2rem 1.75rem 2.5rem;
+
+        @include breakpoint-up(large) {
+            padding: 2.5rem 0;
+            max-width: 75rem;
+            margin: 0 auto;
+        }
+
+    }
+
+
+    >h2 {
+        font-size: 1.875rem;
+
+    }
+
+    >p {
+        @include breakpoint-up(large) {
+            padding-bottom: 4.375rem;
+
+        }
+    }
+
 }
 
-p{
-    line-height: 1.5;
-    font-size: $font-sm;
-    padding: 2rem 1.75rem 2.5rem;
+
+.main {
+    max-width: 75rem;
+    margin: 0 auto;
+
+    @include breakpoint-up(medium) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.875rem;
+        align-content: center;
 
     }
 
-    &__why{
-        h2{
-            padding-top: 4.4375rem;
-        }
-    }
-
-    &__open{
-        p{
-
-            padding-bottom: 4.4375rem;
-        }
+    @include breakpoint-up(large) {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
